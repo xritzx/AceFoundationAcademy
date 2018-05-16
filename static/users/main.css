@@ -1,0 +1,10 @@
+.ites{
+    margin: auto;
+    background: rgba(250,240,240,0.5);
+    border: 1px solid black;
+    padding: 50px;
+    color: black;
+    max-width: 50%;
+    min-height: 2%;
+    box-shadow: 3px 3px 20px grey;
+}

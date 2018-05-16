@@ -1,0 +1,185 @@
+{% extends "base/structure.html" %}
+{% block content %}
+{% load staticfiles %}
+  <!-- COURSES Section -->
+  <div id="services-section" class="text-center">
+    <div class="container">
+      <div class="section-title center">
+        <h2>Our Courses</h2>
+        <hr>
+        <div class="clearfix"></div>
+        <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus. Eleifend pellentesque natoque faucibus magna ut etiam.</p>
+      </div>
+      <div class="space"></div>
+      <div class="row">
+
+        {% if course %}
+          <!--stethoscope -->
+          <!-- cogs -->
+          {% for c in course%}
+          <div class="col-md-3 col-sm-6 service"> <i class="fa fa-{{c.Type}}" aria-hidden="true" style="color:firebrick"></i>
+            <h4>{{c.name}}</h4>
+            <p>{{c.details}}</p>
+          </div>
+          {% endfor %}
+        {% else %}
+        <p>No Course Added Yet</p>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Portfolio Section -->
+<div id="works-section">
+    <div class="container">
+       <!-- Container -->
+      <div class="section-title text-center center">
+        <h2>Our Gallery</h2>
+        <hr>
+        <div class="clearfix"></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+      </div>
+
+      <div class="categories">
+        <ul class="cat">
+          <li>
+            <ol class="type">
+              <li><a href="#" data-filter="*" class="active">All</a></li>
+              <li><a href="#" data-filter=".Biology">Biology</a></li>
+              <li><a href="#" data-filter=".Mathematics">Maths</a></li>
+              <li><a href="#" data-filter=".Physics">Physics</a></li>
+              <li><a href="#" data-filter=".Chemistry">Chemistry</a></li>
+              <li><a href="#" data-filter=".Computer">Computer</a></li>
+            </ol>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row">
+        <div class="portfolio-items">
+
+          <!-- Subject should be mentioned. -->
+        {% if gallery %}
+        {% for img in gallery %}
+        <div class="col-sm-6 col-md-3 col-lg-3 {{img.subject}}">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{{img.image.url}}" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>{{img.subject}}</h4>
+                <small>{{img.descriptions}}</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src="{{img.image.thumbnail.url}}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <div class="jumbotron">
+          <div class="container">
+            <p>NO IMAGE FOUND IN GALLERY</p>
+          </div>
+        </div>
+        {% endif %}
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- About Section -->
+
+<div id="about-section">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>About Us</h2>
+      <hr>
+      <div class="clearfix"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <img src="{% static "base/img/about.jpg" %}" class="img-responsive"> </div>
+      <div class="col-md-6">
+        <div class="about-text">
+          {% if about %}
+          {% for abt in about %}
+
+          <h4>{{abt.title}}</h4>
+          <p>{{abt.detail}}</p>
+
+          {% endfor %}
+          {% else %}
+          <h4>COME VISIT US TO KNOW MORE</h4>
+          <p>Hurry</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Team Section -->
+<div id="team-section" class="text-center">
+    <div class="container">
+      <div class="section-title center">
+        <h2>Meet Our Guides</h2>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+      </div>
+      <div id="row">
+        {% if teachers %}
+
+        {% for teacher in teachers %}
+        <div class="col-md-3 col-sm-6 team">
+          <div class="thumbnail"> <img src="{{teacher.image.thumbnail.url}}" alt="..." class="img-circle team-img">
+            <div class="caption">
+              <h3>{{teacher.name}}</h3>
+              <p>Department of {{teacher.dept}}</p>
+              <p>{{teacher.details}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <h2>Plese Add the teachers</h2>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!-- achievements -->
+{% if achievements %}
+<div id="achievements" class="section dark-bg">
+  <div class="container">
+    <div class="row">
+      {% for achievement in achievements %}
+      <div class="col-md-3 col-sm-3">
+        <div class="achievement-box"> <span class="count">{{achievement.no}}</span>
+          <h4>{{achievement.title}}</h4>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
