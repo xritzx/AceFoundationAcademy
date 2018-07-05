@@ -1,0 +1,69 @@
+{% extends "base/structure.html" %}
+
+{% block title %}
+    Notes
+{% endblock %}
+
+
+{% block content %}
+{% load staticfiles %}
+
+
+{% if notes %}
+
+    <br/><br/><br/>
+    <div class="co container-fluid">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="heads">All
+                            Notes</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="container-fluid table-responsive">
+
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Topic</th>
+                                    <th>Published On</th>
+                                    <th>Notes by</th>
+                                    <th>Download</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for note in notes %}
+
+                                    <tr>
+                                        <td>{{ note.subject }}</td>
+                                        <td>{{ note.topic }}</td>
+                                        <td>{{ note.publication_date }}</td>
+                                        <td>{{ note.teacher }}</td>
+                                        <td><a href="{{ note.note.url }}" class="btn btn-info btn-xs">
+                                            <span class="glyphicon glyphicon-download-alt"></span> Download</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% else %}
+<div class="jumbotron">
+    <br>
+    <h1>No Notes were published</h1>
+    <br>
+</div>
+{% endif %}
+
+{% endblock %}

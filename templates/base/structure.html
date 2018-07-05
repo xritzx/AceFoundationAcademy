@@ -28,13 +28,7 @@
 </head>
 <body>
 
-    <!-- Header of The Page -->
-    <header class="text-center" name="home">
-            <div class="intro-text">
-              <h1>Welcome to <strong>AIJEEC</strong></h1>
-              <p>We believe in Starting from the roots!</p>
-              <a href="#services-section" class="btn btn-default btn-lg page-scroll">LEARN MORE</a></div>
-    </header>
+
 <!-- Navigation  ==========================================-->
     <nav id="menu" class="navbar navbar-default navbar-fixed-top">
             <div class="container"> 
@@ -42,15 +36,15 @@
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 <a class="navbar-brand" href=""><i class="fa fa-adn" aria-hidden="true"></i>
-                  AIJEEC<strong></strong></a> </div>
+                  <strong>AIJEEC</strong></a> </div>
               
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="#home" class="page-scroll">Home</a></li>
                   <li><a href="#services-section" class="page-scroll">Courses</a></li>
-                  <li><a href="#works-section" class="page-scroll">Gallery</a></li>
-                  <li><a href="#gallery" class="page-scroll">Notes</a></li>
+                  <li><a href="#gallery" class="page-scroll">Gallery</a></li>
+                  <li><a href="{% url 'notes' %}" class="page-scroll">Notes</a></li>
                   <li><a href="#about-section" class="page-scroll">About</a></li>
                   <li><a href="#team-section" class="page-scroll">Teachers</a></li>
                   <li><a href="#contact-section" class="page-scroll">Contact</a></li>
@@ -92,7 +86,6 @@
 <script type="text/javascript" src="{% static "/base/js/bootstrap.js" %}"></script> 
 <script type="text/javascript" src="{% static "/base/js/SmoothScroll.js" %}"></script> 
 <script type="text/javascript" src="{% static "/base/js/jquery.counterup.js" %}"></script> 
-<script type="text/javascript" src="{% static "/base/js/contact_me.js" %}"></script> 
 <script type="text/javascript" src="{% static "/base/js/waypoints.js" %}"></script> 
 <script type="text/javascript" src="{% static "/base/js/jquery.prettyPhoto.js" %}"></script> 
 <script type="text/javascript" src="{% static "/base/js/jquery.isotope.js" %}"></script> 

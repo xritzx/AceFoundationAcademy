@@ -118,22 +118,35 @@ hr {
 	background-color: #FFF;
 }
 /* Home Style */
-header {
-	background: url(../img/header-bg.jpg) no-repeat bottom right;
+/* header {
+	position: relative;
 	background-size: cover;
 	color: #cfcfcf;
 	position: relative;
 	height: 100%;
+} */
+.header-box {
+    position: relative; 
+	max-width: 100%;
+	margin: 0 auto; 
 }
-
+#headerimg{
+	
+	filter: blur(5px);
+	overflow: hidden;
+}
 header p {
-	color: rgba(255,255,255,0.8);
+	color: rgba(255,255,255,1);
 	font-size: 20px;
 	margin-bottom: 80px;
 }
 .intro-text {
-	position: relative;
-	padding-top: 250px;
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	width: 100%;
+	background: rgba(50, 0, 0, 0.5);
+	padding-top: 300px;
 	padding-right: 0;
 	padding-left: 0;
 	padding-bottom: 170px;

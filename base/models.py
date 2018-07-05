@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from stdimage import StdImageField
 
@@ -6,13 +7,14 @@ departments=(
         ('Chemistry','Chemistry'),
         ('Mathematics','Mathematics'),
         ('Biology','Biology'),
-        ('Computer','Computer')
+        ('Computer','Computer'),
+        ('Others','Others'),
     )
 
 # Create your models here.
 
 class Course(models.Model):
-    types=(('cogs','Engineering'),('stethoscope','Medical'))
+    types=(('cogs','Engineering'),('stethoscope','Medical'),('graduation-cap','Foundation Course'))
     Type=models.CharField(max_length=15,choices=types,default='cogs')
     name=models.CharField(max_length=100)
     details=models.CharField(max_length=1200)
@@ -31,9 +33,10 @@ class Teachers(models.Model):
 
 class Gallery(models.Model):
     subjects=departments
-    image=StdImageField(upload_to='static/base/img/gallery',variations={'thumbnail':(600,600,True)})
+    image=StdImageField(upload_to='static/base/img/gallery',variations={'thumbnail':(1200,720,True)})
     subject=models.CharField(max_length=20,choices=subjects,default='Mathematics')
     descriptions=models.CharField(max_length=500)
+    date=models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return("Image of {} class".format(str(self.subject)))
@@ -51,3 +54,13 @@ class Achievement(models.Model):
 
     def __str__(self):
         return("Achievement "+str(self.title))
+
+class Feedback(models.Model):
+
+    your_name = models.CharField(max_length=120)
+    email = models.EmailField()
+    details = models.TextField()
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.your_name
