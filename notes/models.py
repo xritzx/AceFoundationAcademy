@@ -8,7 +8,7 @@ class Note(models.Model):
     topic = models.CharField(max_length=200, blank=True)
     publication_date = models.DateField(default=datetime.now)
     teacher = models.ForeignKey(Teachers)
-    note = models.FileField(upload_to="./notes/files")
+    note = models.FileField(upload_to="notes/", null=True, blank=True)
 
     def __str__(self):
         return "Notes by {}".format(str(self.teacher))

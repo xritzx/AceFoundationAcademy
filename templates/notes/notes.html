@@ -11,7 +11,7 @@
 
 {% if notes %}
 
-    <br/><br/><br/>
+    <br><br><br><br><br>
     <div class="co container-fluid">
         <div class="panel-group" id="accordion">
             <div class="panel panel-default">
@@ -19,7 +19,7 @@
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="heads">All
                             Notes</a>
-                    </h4>
+                  </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -43,8 +43,8 @@
                                         <td>{{ note.topic }}</td>
                                         <td>{{ note.publication_date }}</td>
                                         <td>{{ note.teacher }}</td>
-                                        <td><a href="{{ note.note.url }}" class="btn btn-info btn-xs">
-                                            <span class="glyphicon glyphicon-download-alt"></span> Download</a>
+                                        <td><a href="{{ note.note.url }}"  class="btn btn-info btn-xs">
+                                            <span class="fa fa-download"></span> Download</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -61,7 +61,7 @@
 {% else %}
 <div class="jumbotron">
     <br>
-    <h1>No Notes were published</h1>
+    <h1 style="text-align: center">No Notes were published</h1>
     <br>
 </div>
 {% endif %}

@@ -9,7 +9,7 @@ class GalleryAdmin(admin.ModelAdmin):
 admin.site.register(Gallery, GalleryAdmin)
 
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display=('your_name','date')
+    list_display=('your_name', 'email', 'date')
     list_filter=('date',)
     search_fields=('details',)
 
