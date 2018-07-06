@@ -27,7 +27,7 @@ class Teachers(models.Model):
     name=models.CharField(max_length=50)
     dept=models.CharField(max_length=20,choices=depts,default='Mathematics')
     details=models.CharField(max_length=1000)
-    image=StdImageField(upload_to='static/base/img/team',variations={'thumbnail':(250,250,True)})
+    image=StdImageField(upload_to='img/team',variations={'thumbnail':(250,250,True)})
 
     class Meta:
         verbose_name_plural="Faculty"
@@ -38,7 +38,7 @@ class Teachers(models.Model):
 
 class Gallery(models.Model):
     subjects=departments
-    image=StdImageField(upload_to='static/base/img/gallery',variations={'thumbnail':(1200,720,True)})
+    image=StdImageField(upload_to='img/gallery',variations={'thumbnail':(1200,720,True)})
     subject=models.CharField(max_length=20,choices=subjects,default='Mathematics')
     descriptions=models.CharField(max_length=500)
     date=models.DateTimeField(default=datetime.now, blank=True)

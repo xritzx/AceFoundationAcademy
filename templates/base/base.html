@@ -1,4 +1,6 @@
 {% extends "base/structure.html" %}
+
+
 {% block content %}
 {% load staticfiles %}
 
@@ -179,7 +181,7 @@
 
         {% for teacher in teachers %}
         <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <a href="{{teacher.image.url}}" rel="prettyPhoto"><img src="{{teacher.image.thumbnail.url}}" alt="..." class="img-circle team-img"></a>
+          <div class="thumbnail"> <a href="{{teacher.image.url}}" rel="prettyPhoto"><img src="{{teacher.image.thumbnail.url}}" alt="Photo" class="img-circle team-img"></a>
             <div class="caption">
               <h3>{{teacher.name}}</h3>
               <p>Department of {{teacher.dept}}</p>
