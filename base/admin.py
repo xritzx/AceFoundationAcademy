@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course,Teachers,Gallery,About,Achievement,Feedback
+from .models import Course, Teachers, Gallery, About, Achievement, Feedback
 
 class GalleryAdmin(admin.ModelAdmin):
     """The only Main class of Gallery Admin"""
