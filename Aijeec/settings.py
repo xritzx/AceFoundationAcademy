@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'stdimage',
     'notes',
     'users',
+    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,3 +128,4 @@ STATICFILES_DIRS=[
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
 MEDIA_URL = '/media/'
+LOGIN_URL = '/users/user_login'

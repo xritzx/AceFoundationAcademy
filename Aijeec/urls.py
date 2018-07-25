@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('base.urls')),
     url(r'^notes/', include('notes.urls')),
-    url(r'^auth/', include('users.urls')),
+    url(r'^auth/', include('users.urls', namespace='users')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

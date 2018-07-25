@@ -27,14 +27,14 @@ function main() {
     $(window).bind('scroll', function() {
         var navHeight = $(window).height() - 500;
         if ($(window).scrollTop() > navHeight) {
-            $('.navbar-default').addClass('on');
+            $('.chastate').addClass('on');
         } else {
-            $('.navbar-default').removeClass('on');
+            $('.chastate').removeClass('on');
         }
     });
 
     $('body').scrollspy({ 
-        target: '.navbar-default',
+        target: '.chastate',
         offset: 80
     });
 

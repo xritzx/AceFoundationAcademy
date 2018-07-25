@@ -1,4 +1,4 @@
-{% extends "base/structure.html" %}
+{% extends "base/structure_nav.html" %}
 
 {% block title %}
     Login
@@ -8,29 +8,40 @@
 {% block content %}
 {% load staticfiles %}
 
-<!-- Navigation  ==========================================-->
-<nav id="menu" class="navbar navbar-default navbar-fixed-top on">
-    <div class="container"> 
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <a class="navbar-brand" href="{% url 'index' %}"><i class="fa fa-adn" aria-hidden="true"></i>
-          <strong>AIJEEC</strong></a> </div>
-      
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/#home" class="page-scroll">Home</a></li>
-          <li><a href="/#services-section" class="page-scroll">Courses</a></li>
-          <li><a href="/#gallery" class="page-scroll">Gallery</a></li>
-          <li><a href="{% url 'notes' %}" class="page-scroll">Notes</a></li>
-          <li><a href="/#about-section" class="page-scroll">About</a></li>
-          <li><a href="/#team-section" class="page-scroll">Teachers</a></li>
-          <li><a href="/#contact-section" class="page-scroll">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-</nav>
 
+
+
+  <div id="contact-section" class="text-center">
+  <div class="container">
+    {% if failed %}
+    <h2 style="color:rgb(211, 67, 67)">Login failed, Please enter the Username and Password correctly</h2>
+    {% else %}
+    <h2>Login Page</h2>
+    {% endif %}
+    <form action="{% url 'users:login' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="form-group">
+              <label for="username" class="lead">Username: </label>
+              <input type="text" name="username" class="form-control" placeholder="Enter Your Username">
+              <p class="help-block text-danger"></p>
+          </div>
+        </div> 
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="password" class="lead">Password: </label>
+            <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-default" value="Login">
+
+      </form>
+  </div>
+  </div>
 
 {% endblock %}

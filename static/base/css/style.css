@@ -50,6 +50,12 @@ a:hover, a:focus {
 .clearfix {
 	display: inline-block;
 }
+
+.authen{
+	border-bottom:2px solid white;
+	background:rgba(189, 189, 189, 0.432);
+}
+
 * html .clearfix {
 	height: 1%;
 }
@@ -102,6 +108,10 @@ hr {
 .on {
 	background-color: #222222 !important;
 	padding: 0 !important;
+}
+.allon{
+	background-color: #222222;
+	padding: 0;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 	color: #F44336 !important;
@@ -484,6 +494,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 #menu.navbar-default {
 	background-color: rgba(0, 0, 0, 0.7);
 }
+
 label {
 	float: none !important
 }

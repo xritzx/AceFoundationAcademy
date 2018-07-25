@@ -17,7 +17,7 @@
     </header>
 
       <!-- Navigation  ==========================================-->
-      <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+      <nav id="menu" class="navbar navbar-default navbar-fixed-top chastate">
         <div class="container"> 
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -31,10 +31,18 @@
               <li><a href="#home" class="page-scroll">Home</a></li>
               <li><a href="#services-section" class="page-scroll">Courses</a></li>
               <li><a href="#gallery" class="page-scroll">Gallery</a></li>
+              {% if user.is_authenticated %}
               <li><a href="{% url 'notes' %}" class="page-scroll">Notes</a></li>
+              {% endif %}
               <li><a href="#about-section" class="page-scroll">About</a></li>
               <li><a href="#team-section" class="page-scroll">Teachers</a></li>
               <li><a href="#contact-section" class="page-scroll">Contact</a></li>
+              {% if user.is_authenticated %}
+              <li><a href="{% url 'users:logout' %}" class="page-scroll authen">Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'users:login' %}" class="page-scroll authen">Login</a></li>
+              <li><a href="{% url 'users:register' %}" class="page-scroll authen">Register</a></li>
+              {% endif %}
             </ul>
           </div>
         </div>

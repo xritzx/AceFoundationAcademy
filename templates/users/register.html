@@ -1,5 +1,4 @@
-{% extends "base/structure.html" %}
-{% load staticfiles %}
+{% extends "base/structure_nav.html" %}
 {% block title %}
     Register
 {% endblock %}
@@ -7,30 +6,9 @@
 
 {% block content %}
 {% load staticfiles %}
-<!-- Navigation  ==========================================-->
-<nav id="menu" class="navbar navbar-default navbar-fixed-top on">
-    <div class="container"> 
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <a class="navbar-brand" href="{% url 'index' %}"><i class="fa fa-adn" aria-hidden="true"></i>
-          <strong>AIJEEC</strong></a> </div>
-      
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/#home" class="page-scroll">Home</a></li>
-          <li><a href="/#services-section" class="page-scroll">Courses</a></li>
-          <li><a href="/#gallery" class="page-scroll">Gallery</a></li>
-          <li><a href="{% url 'notes' %}" class="page-scroll">Notes</a></li>
-          <li><a href="/#about-section" class="page-scroll">About</a></li>
-          <li><a href="/#team-section" class="page-scroll">Teachers</a></li>
-          <li><a href="/#contact-section" class="page-scroll">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-</nav>
-  
+{% load widget_tweaks %}
+
+
 <div class="container" style="padding-top:100px;">
     {% if registered %}
         <h1>Congrats You are registered</h1>
@@ -39,8 +17,21 @@
         <h2>Register Now</h2><br>
         <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
-            {{ user_form.as_p }}
-            {{ profile_form.as_p }}
+            {% for field in user_form %}
+            <div class="form-group">
+                    {{ field.label_tag }}
+                    {% render_field field class="form-control" %}
+                    {{ field.help_text }}
+
+            </div>
+            {% endfor %}
+            {% for field in profile_form %}
+            <div class="form-group">
+                    {{ field.label_tag }}
+                    {% render_field field class="form-control" %}
+                    {{ field.help_text }}
+            </div>
+            {% endfor %}
             <button type="submit">Register</button>        
         </form>
 

@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from .forms import UserForm, UserProfileForm
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, logout, authenticate
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib import messages
 
 def register(req):
     registered = False
@@ -30,5 +35,25 @@ def register(req):
                                                  'user_form':user_form,
                                                     'profile_form':profile_form})
 
-def login(req):
-    return render(req, 'users/login.html')
+def user_login(req):
+    if(req.method == "POST"):
+        username = req.POST.get('username')
+        password = req.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if(user.is_active):
+                login(req, user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return HttpResponse("Account Deactivated")
+        else:
+            return render(req, 'users/login.html', {'failed':True})
+    else:
+        return render(req, 'users/login.html', {'failed':False})
+
+@login_required
+def user_logout(req):
+    logout(req)
+    return HttpResponseRedirect(reverse('index'))
