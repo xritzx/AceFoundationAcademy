@@ -19,8 +19,14 @@ def register(req):
 
             profile = profile_form.save(commit=False)
             profile.user = user #Fetching Value into one to on field
+
+            # uploading raw image of marksheets and profile
             if 'profile_pic' in req.FILES:
                 profile.profile_pic = req.FILES['profile_pic']
+            if 'class_X_marksheet' in req.FILES:
+                profile.class_X_marksheet = req.FILES['class_X_marksheet']
+            if 'class_XII_marksheet' in req.FILES:
+                profile.class_XII_marksheet = req.FILES['class_XII_marksheet']
             profile.save()
 
             registered = True

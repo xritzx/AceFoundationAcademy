@@ -1,6 +1,6 @@
 {% extends "base/structure_nav.html" %}
 {% block title %}
-    Register
+    Registration
 {% endblock %}
 
 
@@ -8,10 +8,11 @@
 {% load staticfiles %}
 {% load widget_tweaks %}
 
+<div id="contact-section" class="text-center">
 
-<div class="container" style="padding-top:100px;">
+<div class="container">
     {% if registered %}
-        <h1>Congrats You are registered</h1>
+        <h1>Congrats You are registered, get your account activated by visiting us at our center</h1>
 
     {% else %}
         <h2>Register Now</h2><br>
@@ -28,14 +29,16 @@
             {% for field in profile_form %}
             <div class="form-group">
                     {{ field.label_tag }}
+                    {{ field.errors }}
                     {% render_field field class="form-control" %}
                     {{ field.help_text }}
+
             </div>
             {% endfor %}
-            <button type="submit">Register</button>        
+            <button type="submit" class="btn btn-success">Register</button>        
         </form>
 
     {% endif %}
 </div>
-
+</div>
 {% endblock %}
