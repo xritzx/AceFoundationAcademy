@@ -4,17 +4,19 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect, HttpResponse
-from django.contrib import messages
 
 def register(req):
     registered = False
+    entered = False
     if(req.method == "POST"):
+        entered = True
         user_form = UserForm(data=req.POST)
         profile_form = UserProfileForm(data=req.POST)
 
         if(user_form.is_valid() and profile_form.is_valid()):
             user = user_form.save()
             user.set_password(user.password)
+            user.is_active = False
             user.save() #Saving the Instant User Values
 
             profile = profile_form.save(commit=False)
@@ -27,9 +29,11 @@ def register(req):
                 profile.class_X_marksheet = req.FILES['class_X_marksheet']
             if 'class_XII_marksheet' in req.FILES:
                 profile.class_XII_marksheet = req.FILES['class_XII_marksheet']
-            profile.save()
 
+            profile.save()
+            entered = False
             registered = True
+            
         else:
             print(user_form.errors, profile_form.errors)
         
@@ -38,6 +42,7 @@ def register(req):
         profile_form = UserProfileForm()
     
     return render(req, 'users/register.html', {'registered':registered,
+                                                'entered':entered,
                                                  'user_form':user_form,
                                                     'profile_form':profile_form})
 

@@ -11,16 +11,23 @@
 <div id="contact-section" class="text-center">
 
 <div class="container">
+ 
     {% if registered %}
         <h1>Congrats You are registered, get your account activated by visiting us at our center</h1>
 
     {% else %}
-        <kbd style="font-size:50px;">Register</kbd>
+        {% if entered %}
+            <h1> <span style="color:rgb(255, 95, 95)">Registration Failed</span>, Please enter the details carefully</h1>
+        {% else %}
+            <kbd style="font-size:50px;">Register</kbd>
+        {% endif %}
+        
         <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             {% for field in user_form %}
             <div class="form-group signupin">
                     {{ field.label_tag }}
+                    <span style="color:red">{{ field.errors }}</span>
                     {% render_field field class="form-control" %}
                     {{ field.help_text }}
             </div>
@@ -39,4 +46,14 @@
     {% endif %}
 </div>
 </div>
+
+<script>
+    var no = $('#id_contact_number');
+    no.on('click',()=>{
+        if(no.attr('value')<1000000000){
+            alert("Enter a Valid Phone no.");
+        }
+    });
+    
+</script>
 {% endblock %}
