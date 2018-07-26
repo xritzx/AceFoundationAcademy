@@ -8,30 +8,27 @@
 {% block content %}
 {% load staticfiles %}
 
-
-
-
   <div id="contact-section" class="text-center">
   <div class="container">
     {% if failed %}
-    <h2 style="color:rgb(211, 67, 67)">Login failed, Please enter the Username and Password correctly</h2>
+    <h2 style="color:rgba(255, 118, 118, 0.89)">Login failed, Please enter the Username and Password correctly</h2>
     {% else %}
-    <h2>Login Page</h2>
+    <kbd style="font-size:50px;">Login</kbd>
     {% endif %}
     <form action="{% url 'users:login' %}" method="post">
       {% csrf_token %}
       <div class="row">
 
-        <div class="col-md-6">
-          <div class="form-group">
+        <div class="col-md-12">
+          <div class="form-group signupin">
               <label for="username" class="lead">Username: </label>
               <input type="text" name="username" class="form-control" placeholder="Enter Your Username">
               <p class="help-block text-danger"></p>
           </div>
         </div> 
 
-        <div class="col-md-6">
-          <div class="form-group">
+        <div class="col-md-12">
+          <div class="form-group signupin">
             <label for="password" class="lead">Password: </label>
             <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
             <p class="help-block text-danger"></p>

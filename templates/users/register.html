@@ -15,24 +15,22 @@
         <h1>Congrats You are registered, get your account activated by visiting us at our center</h1>
 
     {% else %}
-        <h2>Register Now</h2><br>
+        <kbd style="font-size:50px;">Register</kbd>
         <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             {% for field in user_form %}
-            <div class="form-group">
+            <div class="form-group signupin">
                     {{ field.label_tag }}
                     {% render_field field class="form-control" %}
                     {{ field.help_text }}
-
             </div>
             {% endfor %}
             {% for field in profile_form %}
-            <div class="form-group">
+            <div class="form-group signupin">
                     {{ field.label_tag }}
                     {{ field.errors }}
                     {% render_field field class="form-control" %}
                     {{ field.help_text }}
-
             </div>
             {% endfor %}
             <button type="submit" class="btn btn-success">Register</button>        

@@ -166,6 +166,43 @@ header p {
 	text-transform: uppercase;
 	color: #fff;
 }
+
+@media (max-width: 360px){
+	.intro-text {
+		position: absolute;
+		bottom: 0px;
+		top: 0px;
+		width: 100%;
+		background: rgba(50, 10, 10, 0.5);
+		padding-top: 100px;
+		padding-right: 0;
+		padding-left: 0;
+		padding-bottom: 130px;
+	}
+	.intro-text H1 {
+		font-size: 20px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+}
+@media (max-width: 603px){
+	.intro-text {
+		position: absolute;
+		bottom: 0px;
+		top: 0px;
+		width: 100%;
+		background: rgba(50, 10, 10, 0.5);
+		padding-top: 90px;
+		padding-right: 0;
+		padding-left: 0;
+		padding-bottom: 230px;
+	}
+	.intro-text H1 {
+		font-size: 30px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+}
 .btn-default {
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
@@ -229,6 +266,10 @@ ol.type li a.active {
 ol.type li a:hover {
 	color: #F44336;
 	border: 1px solid #F44336;
+}
+.type li{
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 .isotope-item {
 	z-index: 2
@@ -502,9 +543,12 @@ label {
 	padding: 12% 10%;
 }
 }
-
 @media (max-width: 360px) {
 .hover-bg .hover-text {
 	padding: 22% 10%;
 }
+}
+/* login and register */
+.signupin{
+	padding:0 20% 0 20%;
 }
