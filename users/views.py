@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect, HttpResponse
+from .models import User, UserProfile
 
 def register(req):
     registered = False
@@ -68,3 +69,8 @@ def user_login(req):
 def user_logout(req):
     logout(req)
     return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def user_info(req):
+    user_data = req.user
+    return render(req, 'users/user_info.html', {'user_data':user_data})

@@ -39,6 +39,7 @@
               <li><a href="#contact-section" class="page-scroll">Contact</a></li>
               {% if user.is_authenticated %}
               <li><a href="{% url 'users:logout' %}" class="page-scroll authen">Logout</a></li>
+              <li><a href="{% url 'users:profile' %}" class="page-scroll authen">Profile</a></li>
               {% else %}
               <li><a href="{% url 'users:login' %}" class="page-scroll authen">Login</a></li>
               <li><a href="{% url 'users:register' %}" class="page-scroll authen">Register</a></li>
