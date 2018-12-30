@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'stdimage',
     'notes',
     'users',
+    'exams',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',

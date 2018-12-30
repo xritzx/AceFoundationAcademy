@@ -10,6 +10,7 @@ def register(req):
     registered = False
     entered = False
     if(req.method == "POST"):
+        
         entered = True
         user_form = UserForm(data=req.POST)
         profile_form = UserProfileForm(data=req.POST)
@@ -61,9 +62,9 @@ def user_login(req):
             else:
                 return HttpResponse("Account Deactivated")
         else:
-            return render(req, 'users/login.html', {'failed':True})
+            return render(req, 'users/login.html', {'failed': True})
     else:
-        return render(req, 'users/login.html', {'failed':False})
+        return render(req, 'users/login.html', {'failed': False})
 
 @login_required
 def user_logout(req):
@@ -73,4 +74,6 @@ def user_logout(req):
 @login_required
 def user_info(req):
     user_data = req.user
-    return render(req, 'users/user_info.html', {'user_data':user_data})
+    return render(req, 'users/user_info.html', {
+        'user_data':user_data
+        })

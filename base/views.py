@@ -42,5 +42,5 @@ def index(req):
 
 
     return(render(
-        req,'base/base.html', context=contents
+        req, 'base/base.html', context=contents
     ))
