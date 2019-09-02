@@ -7,14 +7,16 @@ departments=(
         ('Chemistry','Chemistry'),
         ('Mathematics','Mathematics'),
         ('Biology','Biology'),
-        ('Computer','Computer'),
+        ('Computer Sc.','Computer Sc.'),
+        ('History/Geography','History/Geography'),
+        ('Second Language', 'Second Language'),
         ('Others','Others'),
     )
 
 # Create your models here.
 
 class Course(models.Model):
-    types=(('cogs','Engineering'),('stethoscope','Medical'),('graduation-cap','Foundation Course'))
+    types=(('cogs','Gear Icon'),('stethoscope','Medic Icon'),('graduation-cap','Foundation Course'))
     Type=models.CharField(max_length=15,choices=types,default='cogs')
     name=models.CharField(max_length=100)
     details=models.CharField(max_length=1200)

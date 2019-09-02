@@ -27,10 +27,6 @@ def register(req):
             # uploading raw image of marksheets and profile
             if 'profile_pic' in req.FILES:
                 profile.profile_pic = req.FILES['profile_pic']
-            if 'class_X_marksheet' in req.FILES:
-                profile.class_X_marksheet = req.FILES['class_X_marksheet']
-            if 'class_XII_marksheet' in req.FILES:
-                profile.class_XII_marksheet = req.FILES['class_XII_marksheet']
 
             profile.save()
             entered = False
@@ -60,7 +56,7 @@ def user_login(req):
                 login(req, user)
                 return HttpResponseRedirect(reverse('index'))
             else:
-                return HttpResponse("Account Deactivated")
+                return HttpResponse("Account is not activated yet or is deactivated")
         else:
             return render(req, 'users/login.html', {'failed': True})
     else:

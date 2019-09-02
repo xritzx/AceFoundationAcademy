@@ -2,11 +2,8 @@ from datetime import datetime
 from django.db import models
 
 EXAM_TYPES=(
-    ('JEE MAINS', 'JEE MAINS'),
-    ('JEE ADVANCED', 'JEE ADVANCED'),
-    ('NEET', 'NEET'),
-    ('AIIMS', 'AIIMS'),
-    ('WBJEE', 'WBJEE'),
+    ('Weekly Test', 'Weekly Test'),
+    ('Evaluation Test', 'Evaluation Test'),
 )
 
 class Exam(models.Model):

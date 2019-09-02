@@ -23,21 +23,13 @@ class UserProfile(models.Model):
     guardian_name = models.CharField(max_length=40, help_text="Father/Mother/Gaurdian Name")
     contact_number_of_guardian = models.IntegerField(validators=[MinValueValidator(MIN_VAL), MaxValueValidator(MAX_VAL)], help_text="Required * Example: XXXXXXXXXX")
     address = models.TextField(blank=True, help_text="Optional")
-    fresher_or_dropper = models.CharField(max_length=10, help_text="Enter wheather a Fresher or not", choices=(('Fresher', 'Fresher'),('Dropper', 'Dropper')), default="Fresher")
     
     class_X_school_name = models.CharField(max_length=40, help_text="Enter your School Name", blank=True)
     class_X_board_name = models.CharField(max_length=6, choices=(("CBSE", "CBSE"), ("ICSE", "ICSE"), ("WBSE", "WBSE")), default="ICSE")
     class_X_year_of_passing = models.CharField(choices=YEAR, max_length=5)
-    class_X_marksheet = models.ImageField(upload_to="users/marksheetX", blank=True)
-    class_X_percentage = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(40)], default=40, help_text="Enter the Integer Value")
-    subjects_opted = models.CharField(max_length=5, choices=(("PCMB", "PCMB"), ("PCM", "PCM"), ("PCB", "PCB")), default="PCB", help_text="P: Physics, C: Chemistry, M: Mathematics, B: Biology")
+    last_exam_marksheet = models.ImageField(upload_to="users/marksheet", blank=True, help_text="Marksheet should name as 'YOUR_NAME_CLASS' less than 200kB")
 
-    class_XII_board_name = models.CharField(max_length=6, choices=(("CBSE", "CBSE"), ("ICSE", "ICSE"), ("WBSE", "WBSE")), default="None", help_text="Optional, Only in case of dropper", blank=True)
-    class_XII_year_of_passing_or_expected = models.CharField(max_length=5, choices=YEAR, help_text="Optional, Only in case of dropper", blank=True) 
-    class_XII_marksheet = models.ImageField(upload_to="users/marksheetXII", blank=True, help_text="Optional, Only in case of dropper")
-    class_XII_percentage = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)], help_text="Optional, Only in case of dropper", blank=True, default=0)
-
-    profile_pic = models.ImageField(upload_to="users/profile_pic", blank=True)
+    profile_pic = models.ImageField(upload_to="users/profile_pic", blank=True, help_text="Image should be less than 200kB")
 
 
     def __str__(self):
