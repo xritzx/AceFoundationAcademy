@@ -8,7 +8,7 @@
     <title>Ace Foundation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Icons -->
-    <link rel="shortcut icon" href="{% static "base/img/ace.png" %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static "base/img/ace.png" %}" type="image/png">
     <link rel="apple-touch-icon" href="{% static "base/img/apple-touch-icon.png" %}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static "base/img/apple-touch-icon-72x72.png" %}">
     <link rel="apple-touch-icon" sizes="114x114" href="{% static "base/img/apple-touch-icon-114x114.png" %}">
@@ -39,8 +39,8 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="{% url 'index' %}"><i class="fa fa-adn" aria-hidden="true"></i>
-              <strong>Ace Foundation</strong></a> </div>
+            <a class="navbar-brand" href="{% url 'index' %}">
+              <strong><img src="{% static "base/img/ace.png" %}" width="40" alt=""> Ace Foundation</strong></a> </div>
           
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
