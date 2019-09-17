@@ -2,6 +2,8 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator, MaxValueValidator, MinValueValidator, MaxLengthValidator
+from base.models import departments
+from multiselectfield import MultiSelectField
 
 MAX_VAL = 10**16
 MIN_VAL = 10**9
@@ -23,7 +25,8 @@ class UserProfile(models.Model):
     guardian_name = models.CharField(max_length=40, help_text="Father/Mother/Gaurdian Name")
     contact_number_of_guardian = models.IntegerField(validators=[MinValueValidator(MIN_VAL), MaxValueValidator(MAX_VAL)], help_text="Required * Example: XXXXXXXXXX")
     address = models.TextField(blank=True, help_text="Optional")
-    
+    subjects = MultiSelectField(choices=departments, default=departments[0][0])
+
     class_X_school_name = models.CharField(max_length=40, help_text="Enter your School Name", blank=True)
     class_X_board_name = models.CharField(max_length=6, choices=(("CBSE", "CBSE"), ("ICSE", "ICSE"), ("WBSE", "WBSE")), default="ICSE")
     class_X_year_of_passing = models.CharField(choices=YEAR, max_length=5)
@@ -31,6 +34,11 @@ class UserProfile(models.Model):
 
     profile_pic = models.ImageField(upload_to="users/profile_pic", blank=True, help_text="Image should be less than 200kB")
 
+    def getClass(self):
+        if(datetime.now().month<=3):
+            return (10-(int(self.class_X_year_of_passing) - datetime.now().year))
+        else:
+            return (11-(int(self.class_X_year_of_passing) - datetime.now().year))
 
     def __str__(self):
         return self.user.first_name + " Username: " + self.user.username

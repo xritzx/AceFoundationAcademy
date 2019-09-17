@@ -9,18 +9,17 @@
     <div class="container">
     <div class="thumbnail"> <a href="{{user_data.userprofile.profile_pic.url}}" rel="prettyPhoto"><img src="{{user_data.userprofile.profile_pic.url}}" alt="Photo" class="img-circle team-img"></a>
         <div class="caption">
-            <h3><strong>Username: </strong>{{ user_data.username }}</h3>
-            <h4><strong>Name: </strong>{{ user_data.first_name }} {{ user_data.last_name }}</h4>
-            <h4><strong>Gardian Name: </strong>{{ user_data.userprofile.gardian_name }}</h4>
-            <h4><strong>Address: </strong><address>{{ user_data.userprofile.address }}</address></h4>
+            <h3><strong>Username: <br></strong>{{ user_data.username }}</h3>
+            <h4><strong>Name: <br></strong>{{ user_data.first_name }} {{ user_data.last_name }}</h4><br>
+            <h4><strong>Class: <br></strong>{{ user_data.userprofile.getClass }}</h4><br>
 
-            <h4><strong>Class X School Name: </strong>{{ user_data.userprofile.class_X_school_name }}({{ user_data.userprofile.class_X_board_name }})</h4>
-            <h4><strong>Marks Obtained in </strong>({{ user_data.userprofile.class_X_board_name }} {{ user_data.userprofile.class_X_year_of_passing }}): {{ user_data.userprofile.class_X_percentage }}%</h4>
+            <h4><strong>Guardian Name: <br></strong>{{ user_data.userprofile.guardian_name }}</h4><br>
+            <h4><strong>Guardian Contact: <br></strong>{{ user_data.userprofile.contact_number_of_guardian }}</h4><br>
+            <h4><strong>Address: </strong><address>{{ user_data.userprofile.address }}</address></h4><br>
 
-            <h4><strong>Class XII School Name: </strong>{{user_data.userprofile.class_XII_school_name}}({{ user_data.userprofile.class_XII_board_name }})</h4>
-            <h4><strong>Marks Obtained in </strong>({{ user_data.userprofile.class_XII_board_name }} {{ user_data.userprofile.class_XII_year_of_passing }}): {{ user_data.userprofile.class_XII_percentage }}%</h4>
+            <h4><strong>Class X School Name: <br></strong>{{ user_data.userprofile.class_X_school_name }}({{ user_data.userprofile.class_X_board_name }})</h4>
             
-            <h4><strong>Subject Opted in </strong>({{ user_data.userprofile.class_XII_board_name }}): {{ user_data.userprofile.subjects_opted }}</h4>
+            <h4><strong>Subject Opted in ACE for </strong>({{ user_data.userprofile.class_X_board_name }}): <br>{{ user_data.userprofile.subjects }}</h4>
         </div>
     </div>
 </div>

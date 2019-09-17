@@ -30,23 +30,29 @@
                                     <th>Subject</th>
                                     <th>Topic</th>
                                     <th>Published On</th>
+                                    <th>Class</th>
                                     <th>Notes by</th>
                                     <th>Download</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for note in notes %}
-
+                            {% for note in notes %} 
+                                {% if user_data.userprofile.getClass == note.for_class %}
+                                    {% if note.subject in user_data.userprofile.subjects %} 
+        
                                     <tr>
                                         <td>{{ note.subject }}</td>
                                         <td>{{ note.topic }}</td>
                                         <td>{{ note.publication_date }}</td>
+                                        <td>{{ note.for_class }}</td>
                                         <td>{{ note.teacher }}</td>
                                         <td><a href="{{ note.note.url }}"  class="btn btn-info btn-xs">
                                             <span class="fa fa-download"></span> Download</a>
                                         </td>
                                     </tr>
-                                {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
                                 </tbody>
                             </table>
                         </div>

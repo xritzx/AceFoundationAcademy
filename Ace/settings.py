@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'notes',
     'users',
     'exams',
+    'multiselectfield',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
