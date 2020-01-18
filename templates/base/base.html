@@ -117,13 +117,13 @@
         {% for img in gallery %}
         <div class="col-sm-6 col-md-3 col-lg-3 {{img.subject}}">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="{{img.image.url}}" rel="prettyPhoto">
+            <div class="hover-bg"> <a href="{{img.image}}" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>{{img.subject}}</h4>
                 <small>{{img.descriptions}}</small>
                 <div class="clearfix"></div>
               </div>
-              <img src="{{img.image.url}}" class="img-responsive" alt="{{img.subject}}"> </a> </div>
+              <img src="{{img.image}}" class="img-responsive" alt="{{img.subject}}"> </a> </div>
           </div>
         </div>
         {% endfor %}
@@ -189,7 +189,7 @@
 
         {% for teacher in teachers %}
         <div class="col-md-3 col-sm-6 team">
-          <div class="thumbnail"> <a href="{{teacher.image.url}}" rel="prettyPhoto"><img src="{{teacher.image.thumbnail.url}}" alt="Photo" class="img-circle team-img"></a>
+          <div class="thumbnail"> <a href="{{teacher.image}}" rel="prettyPhoto"><img src="{{teacher.image}}" alt="Photo" class="img-circle team-img"></a>
             <div class="caption">
               <h3>{{teacher.name}}</h3>
               <p>Department of {{teacher.dept}}</p>

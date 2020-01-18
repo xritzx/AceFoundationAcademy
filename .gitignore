@@ -1,0 +1,25 @@
+*.pyc
+
+kgecweb/settings/development.py
+.idea
+.vscode
+.vagrant
+.DS_Store
+*.sqlite3
+media/*
+Makefile
+build.zip
+build
+source
+*.iml
+
+# Environments
+.env
+.venv
+env/
+venv/
+ven/
+ENV/
+env.bak/
+venv.bak/
+datadump.json

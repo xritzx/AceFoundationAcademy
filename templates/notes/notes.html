@@ -36,6 +36,18 @@
                                 </thead>
                                 <tbody>
                             {% for note in notes %} 
+                            {% ifequal note.for_class 69 %}
+                            <tr>
+                                <td>{{ note.subject }}</td>
+                                <td>{{ note.topic }}</td>
+                                <td>{{ note.publication_date }}</td>
+                                <td>{{ note.teacher }}</td>
+                                <td><a href="{{ note.note }}"  class="btn btn-info btn-xs">
+                                    <span class="fa fa-download"></span> Download</a>
+                                </td>
+                            </tr>
+                            {% endifequal %}
+
                                 {% if user_data.userprofile.getClass == note.for_class %}
                                     {% if note.subject in user_data.userprofile.subjects %} 
         
@@ -44,7 +56,7 @@
                                         <td>{{ note.topic }}</td>
                                         <td>{{ note.publication_date }}</td>
                                         <td>{{ note.teacher }}</td>
-                                        <td><a href="{{ note.note.url }}"  class="btn btn-info btn-xs">
+                                        <td><a href="{{ note.note }}"  class="btn btn-info btn-xs">
                                             <span class="fa fa-download"></span> Download</a>
                                         </td>
                                     </tr>
