@@ -1,4 +1,4 @@
-Django==1.11
+Django==1.11.29
 django-multiselectfield==0.1.11
 django-stdimage==5.0.2
 django-widget-tweaks==1.4.5
